@@ -14,14 +14,14 @@ class CustomNavigationBar extends StatelessWidget {
       onTap: (int i){
         uiProvider.selectedMenuOpt = i;
       },
-      showUnselectedLabels: false,
-      showSelectedLabels: false,
+      showUnselectedLabels: true,
+      showSelectedLabels: true,
       elevation: 0,
       currentIndex: currentIndex,
       items: [
-        BottomNavigationBarItem(icon: Icon(Icons.map), label: 'Map'),
+        BottomNavigationBarItem(icon: Icon(Icons.room), label: 'Map'),
         BottomNavigationBarItem(
-            icon: Icon(Icons.compass_calibration), label: 'Address'),
+            icon: Icon(Icons.language), label: 'Address'),
       ],
     );
   }

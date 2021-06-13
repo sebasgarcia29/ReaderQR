@@ -3,7 +3,10 @@ import 'package:provider/provider.dart';
 
 //Pages
 import 'package:qr_reader/src/pages/home_page.dart';
-import 'package:qr_reader/src/pages/maps_page.dart';
+import 'package:qr_reader/src/pages/mapa_page.dart';
+
+//Providers
+import 'package:qr_reader/src/providers/scan_list_provider.dart';
 import 'package:qr_reader/src/providers/ui_provider.dart';
 
 void main() => runApp(MyApp());
@@ -14,6 +17,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (BuildContext context) => UiProvider()),
+        ChangeNotifierProvider(
+            create: (BuildContext context) => ScanListProvider()),
       ],
       child: MaterialApp(
         title: 'QR Reader',
@@ -21,9 +26,16 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         routes: {
           'home': (BuildContext context) => HomePage(),
-          'map': (BuildContext context) => MapsScreen(),
+          'map': (BuildContext context) => MapaPage(),
         },
-        theme: ThemeData.dark().copyWith(),
+        theme: ThemeData(
+            primaryColor: Colors.deepPurple,
+            floatingActionButtonTheme: FloatingActionButtonThemeData(
+              backgroundColor: Colors.deepPurple,
+            ),
+            bottomNavigationBarTheme: BottomNavigationBarThemeData(
+              selectedItemColor: Colors.deepPurple,
+            )),
       ),
     );
   }
